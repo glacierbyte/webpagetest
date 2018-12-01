@@ -45,3 +45,6 @@ export class WebPageTest {
         return data.data;
     }
 }
+module.exports = {
+    WebPageTest: WebPageTest
+};

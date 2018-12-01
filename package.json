@@ -1,12 +1,15 @@
 {
   "name": "@glacierbyte/webpagetest",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Promise based webpagetest api wrapper",
   "main": "./lib/webpagetest.js",
   "scripts": {
     "build": "tsc",
     "test": "node ./lib/test"
   },
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/glacierbyte/webpagetest.git"
