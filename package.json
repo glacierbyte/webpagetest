@@ -1,0 +1,31 @@
+{
+  "name": "@glacierbyte/webpagetest",
+  "version": "0.0.1",
+  "description": "Promise based webpagetest api wrapper",
+  "main": "./lib/webpagetest.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "node ./lib/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glacierbyte/webpagetest.git"
+  },
+  "keywords": [
+    "webpagetest"
+  ],
+  "author": "GlacierByte",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glacierbyte/webpagetest/issues"
+  },
+  "homepage": "https://github.com/glacierbyte/webpagetest#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "node": "^11.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.11",
+    "typescript": "^3.2.1"
+  }
+}
