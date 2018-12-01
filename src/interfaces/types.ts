@@ -1,4 +1,4 @@
-interface RunTestResponse {
+export interface RunTestResponse {
     statusCode: number,
     statusTest: string,
     data: {
@@ -8,7 +8,7 @@ interface RunTestResponse {
         userUrl: string
     }
 }
-interface TestStatusResponse {
+export interface TestStatusResponse {
     statusCode: number;
     statusText: string;
     requestId: string;
@@ -27,7 +27,7 @@ interface ViewBenchmarkResults {
     domTime: number;
     avgRun: number;
 }
-interface ResultViewResult {
+export interface ResultViewResult {
     result: {
         URL: string,
     },
@@ -45,10 +45,20 @@ interface Run {
     id: number,
     firstView: ResultViewResult
 }
-interface TestResultReponse {
+export interface TestResult {
+    url?: string,
+    testId?: string,
     average: {
         firstView: ViewBenchmarkResults,
         repeatView: ViewBenchmarkResults
     },
     runs: Run[]
+}
+export interface TestResultResponse {
+    data: TestResult
+}
+export enum DEBUG_LEVEL {
+    NONE,
+    INFO,
+    ALL
 }

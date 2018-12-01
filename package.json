@@ -1,11 +1,11 @@
 {
   "name": "@glacierbyte/webpagetest",
-  "version": "0.0.2",
+  "version": "0.2.0",
   "description": "Promise based webpagetest api wrapper",
-  "main": "./lib/webpagetest.js",
+  "main": "./lib/index.js",
   "scripts": {
-    "build": "tsc",
-    "test": "node ./lib/test"
+    "build": "tsc --declaration",
+    "test": "node ./lib/test/test"
   },
   "files": [
     "lib"
