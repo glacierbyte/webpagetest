@@ -1,6 +1,6 @@
 {
   "name": "@glacierbyte/webpagetest",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Promise based webpagetest api wrapper",
   "main": "./lib/index.js",
   "scripts": {
@@ -24,11 +24,10 @@
   },
   "homepage": "https://github.com/glacierbyte/webpagetest#readme",
   "dependencies": {
-    "axios": "^0.18.0",
-    "node": "^11.2.0"
+    "axios": "^0.18.0"
   },
   "devDependencies": {
-    "@types/node": "^10.12.11",
+    "@types/node": "^10",
     "typescript": "^3.2.1"
   }
 }

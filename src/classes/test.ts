@@ -1,6 +1,6 @@
-import {WebPageTest} from "./webpagetest";
-import {DEBUG_LEVEL, TestResult, TestResultResponse} from "../interfaces/types";
-import {RunTestOptions} from "../interfaces/options";
+import {WebPageTest} from "@classes/webpagetest";
+import {DEBUG_LEVEL, TestResult} from "@interfaces/types";
+import {RunTestOptions} from "@interfaces/options";
 
 interface TestOptions {
     pingDelay?: number;
@@ -57,8 +57,6 @@ export class NewTest {
         if(this.TestId) {
             let response = await this.TestEngine.testResult(this.TestId);
             if (response) {
-                response.testId = this.TestId;
-                response.url = this.TestUrl;
                 return response;
             }
             throw new Error('Was not able to get Test Data');

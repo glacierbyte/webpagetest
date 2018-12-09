@@ -1,7 +1,21 @@
 import axios, {AxiosInstance} from 'axios';
 import * as querystring from "querystring";
-import {DEBUG_LEVEL, RunTestResponse, TestResult, TestResultResponse, TestStatusResponse} from "../interfaces/types";
-import {RunTestOptions, TestCancelOptions, TestOptions, TestResultOptions, TestStatusOptions} from "../interfaces/options";
+import {
+    DEBUG_LEVEL,
+    LocationResponse,
+    RunTestResponse,
+    TestResult,
+    TestResultResponse,
+    TestStatusResponse
+} from "@interfaces/types";
+import {
+    BasicFileOption,
+    RunTestOptions,
+    TestCancelOptions,
+    TestOptions,
+    TestResultOptions,
+    TestStatusOptions
+} from "@interfaces/options";
 
 interface FullRunTestOptions extends RunTestOptions{
     url: string,
@@ -20,7 +34,7 @@ export class WebPageTest {
     };
     readonly apiKey: string;
     private httpClient: AxiosInstance;
-    private debugLevel: DEBUG_LEVEL;
+    readonly debugLevel: DEBUG_LEVEL;
 
     constructor(options: TestOptions) {
         this.apiKey = options.apiKey;
@@ -79,6 +93,21 @@ export class WebPageTest {
         const data = await this.httpClient.post<TestResultResponse>(this.webPageTestPaths.testResult, querystring.stringify(options));
         if(data.status === 200) {
             return data.data.data;
+        } else {
+            throw new Error('Test Failed');
+        }
+    }
+
+    async getLocations(): Promise<LocationResponse> {
+        const options: BasicFileOption = {
+            f: 'json',
+        };
+        if(this.debugLevel === DEBUG_LEVEL.ALL){
+            querystring.stringify(options);
+        }
+        const data = await this.httpClient.post<LocationResponse>(this.webPageTestPaths.testResult, querystring.stringify(options));
+        if(data.status === 200) {
+            return data.data;
         } else {
             throw new Error('Test Failed');
         }
