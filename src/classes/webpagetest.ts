@@ -39,6 +39,9 @@ export class WebPageTest {
     constructor(options: TestOptions) {
         this.apiKey = options.apiKey;
         this.debugLevel = options.debug || DEBUG_LEVEL.NONE;
+        if(this.debugLevel === DEBUG_LEVEL.ALL) {
+            console.log(options);
+        }
         this.httpClient = axios.create({
             baseURL: (options && options.endpoint) || this.webPageTestEndPoint,
             timeout: (options && options.timeout) || this.webPageTestTimeout,
@@ -88,7 +91,7 @@ export class WebPageTest {
             f: 'json',
         };
         if(this.debugLevel === DEBUG_LEVEL.ALL){
-            querystring.stringify(options);
+            console.log(querystring.stringify(options));
         }
         const data = await this.httpClient.post<TestResultResponse>(this.webPageTestPaths.testResult, querystring.stringify(options));
         if(data.status === 200) {
