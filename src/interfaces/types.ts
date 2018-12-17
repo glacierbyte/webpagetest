@@ -200,7 +200,9 @@ export interface TestResult {
     plr: string;
     mobile: number;
     completed: number;
-    runs: Run[],
+    runs: {
+        [run: number]: Run
+    };
     fvonly: boolean,
     successfulFVRuns: number,
     successfulRVRuns: number,

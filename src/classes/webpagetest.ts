@@ -7,7 +7,7 @@ import {
     TestResult,
     TestResultResponse,
     TestStatusResponse
-} from "@interfaces/types";
+} from "../interfaces/types";
 import {
     BasicFileOption,
     RunTestOptions,
@@ -15,7 +15,7 @@ import {
     TestOptions,
     TestResultOptions,
     TestStatusOptions
-} from "@interfaces/options";
+} from "../interfaces/options";
 
 interface FullRunTestOptions extends RunTestOptions{
     url: string,
@@ -31,6 +31,7 @@ export class WebPageTest {
         'testStatus': '/testStatus.php',
         'testResult': '/jsonResult.php',
         'cancelTest': '/cancelTest.php',
+        'getLocations':'/getLocations.php'
     };
     readonly apiKey: string;
     private httpClient: AxiosInstance;
@@ -108,7 +109,7 @@ export class WebPageTest {
         if(this.debugLevel === DEBUG_LEVEL.ALL){
             querystring.stringify(options);
         }
-        const data = await this.httpClient.post<LocationResponse>(this.webPageTestPaths.testResult, querystring.stringify(options));
+        const data = await this.httpClient.post<LocationResponse>(this.webPageTestPaths.getLocations, querystring.stringify(options));
         if(data.status === 200) {
             return data.data;
         } else {

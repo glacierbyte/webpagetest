@@ -1,6 +1,6 @@
-import {WebPageTest} from "@classes/webpagetest";
-import {DEBUG_LEVEL, TestResult} from "@interfaces/types";
-import {RunTestOptions} from "@interfaces/options";
+import {WebPageTest} from "./webpagetest";
+import {DEBUG_LEVEL, TestResult} from "../interfaces/types";
+import {RunTestOptions} from "../interfaces/options";
 
 interface TestOptions {
     pingDelay?: number;
